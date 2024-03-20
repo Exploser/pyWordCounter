@@ -1,23 +1,23 @@
 # PyWordCounter Script Documentation
 ## Overview
 
-    The PyWordCounter script is an efficient Python utility crafted to analyze the content of your system's clipboard, focusing on text analysis through various metrics. It employs the pyperclip module to fetch text data directly from the clipboard and utilizes Python's built-in pprint module to neatly display the analysis results. The script also integrates a custom helper module designed to furnish users with helpful instructions on utilizing the script effectively. This tool is perfect for users seeking quick insights into the text data they work with, including word counts, character frequency analysis, and total character counts, emphasizing ease of use and accessibility.
+The PyWordCounter script is an efficient Python utility crafted to analyze the content of your system's clipboard, focusing on text analysis through various metrics. It employs the pyperclip module to fetch text data directly from the clipboard and utilizes Python's built-in pprint module to neatly display the analysis results. The script also integrates a custom helper module designed to furnish users with helpful instructions on utilizing the script effectively. This tool is perfect for users seeking quick insights into the text data they work with, including word counts, character frequency analysis, and total character counts, emphasizing ease of use and accessibility.
 
 ## Dependencies
 
-    To ensure smooth operation of the PyWordCounter script, the following dependencies must be met:
+To ensure smooth operation of the PyWordCounter script, the following dependencies must be met:
 
-        Python: The script is compatible with Python 3.x. Ensure that Python 3 is installed on your system.
-        pyperclip: This third-party module enables the script to access and manipulate the system's clipboard content. It is not included with Python and requires separate installation.
+    Python: The script is compatible with Python 3.x. Ensure that Python 3 is installed on your system.
+    pyperclip: This third-party module enables the script to access and manipulate the system's clipboard content. It is not included with Python and   requires separate installation.
 
 ## Installation
 ### Prerequisites
 
-    Before proceeding with the installation, confirm that Python 3.x is installed on your system by running python --version or python3 --version in your terminal or command prompt.
+Before proceeding with the installation, confirm that Python 3.x is installed on your system by running python --version or python3 --version in your terminal or command prompt.
 
 ### Installing Dependencies
 
-        Install the pyperclip module using pip, Python's package installer. Open your terminal or command prompt and execute the following command:
+Install the pyperclip module using pip, Python's package installer. Open your terminal or command prompt and execute the following command:
 
             pip install pyperclip
 
