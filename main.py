@@ -11,6 +11,7 @@ def print_help():
         -i  Count individual characters frequency
         -w  Count words
         -h  Show this help message
+    Default action (no option provided): Count words
     """
     print(help_text)
 
@@ -34,13 +35,9 @@ def count_individual_characters(text):
         print(f"{char}: {count}")
 
 def main():
-    if len(sys.argv) != 2:
-        print("Error: Invalid number of arguments.")
-        print_help()
-        return
-
-    option = sys.argv[1]
     text = pyperclip.paste()
+    
+    option = sys.argv[1] if len(sys.argv) == 2 else '-w'
 
     if option == '-h':
         print_help()
@@ -51,8 +48,8 @@ def main():
     elif option == '-i':
         count_individual_characters(text)
     else:
-        print("Error: Unknown option.")
-        print_help()
+        print("Unknown option. Defaulting to word count.")
+        count_words(text)
 
 if __name__ == "__main__":
     main()
