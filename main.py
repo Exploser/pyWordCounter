@@ -1,4 +1,4 @@
-#! python3
+#!/usr/bin/python3
 import pyperclip, pprint
 import sys
 
@@ -26,6 +26,14 @@ def wordCounter():
             wordCount += 1
     pprint.pprint("Word count = " + str(wordCount))
 
+def helper():
+    print('''The script accepts command-line arguments to specify the operation to perform:
+
+    -c: Count total characters in the clipboard text that are within the ASCII range 97 to 122 (inclusive). Note: There seems to be a logical error in this range check, as it should be and instead of or to accurately filter characters.
+    -i: Count the occurrences of each individual character in the clipboard text, ignoring case.
+    -w: Count the total number of words in the clipboard text. A word is defined as any sequence of characters separated by whitespace.
+    -h: Display help information using a function from an external module named helper.''')
+
         
 def totalCharCounter():
     totalCharCount = 0
@@ -39,8 +47,13 @@ def totalCharCounter():
     return totalCharCount
 
 def handler():
-    arg = sys.argv[1]
-    
+    try:
+        arg = sys.argv[1]
+    except:
+        print("No arguments passed?")
+        helper()
+        return
+
     if (len(sys.argv) > 2):
         print("Error Usage")
         helper()
@@ -51,7 +64,7 @@ def handler():
         idvCharCounter()
     if (arg == '-w'):
         wordCounter()
-    if (arg == '-h'):
+    if (arg == '-h' or arg=='--h' or arg=='-help' or arg=='--help'):
         helper()
 
 handler()
