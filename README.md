@@ -15,11 +15,9 @@ Dependencies
 
     Install the pyperclip module using pip:
 
-    bash
+        pip install pyperclip
 
-    pip install pyperclip
-
-Usage
+## Usage
 
 The script accepts command-line arguments to specify the operation to perform:
 
@@ -30,9 +28,7 @@ The script accepts command-line arguments to specify the operation to perform:
 
 To use the script, copy some text to the clipboard and run the script with one of the above arguments. For example:
 
-bash
-
-python script.py -c
+        python script.py -c
 
 This command will print the total character count of the text in the clipboard.
 Functions
@@ -42,7 +38,7 @@ Functions
     totalCharCounter(): Counts and prints the total number of characters in the clipboard text that fall within the ASCII range for letters.
     handler(): Parses command-line arguments and calls the appropriate function based on the argument provided.
 
-Error Handling
+## Error Handling
 
 The script includes basic error handling for cases where no arguments are passed or an incorrect usage pattern is detected (such as passing too many arguments). In these cases, it either calls the helper() function from the helper module or prints an error message.
 Notes
