@@ -1,70 +1,58 @@
 #!/usr/bin/python3
-import pyperclip, pprint
+import pyperclip
 import sys
 
-text = pyperclip.paste()
+def print_help():
 
-charCounter = {}
+    help_text = """
+    Usage: script.py [option]
+    Options:
+        -c  Count total characters (excluding spaces)
+        -i  Count individual characters frequency
+        -w  Count words
+        -h  Show this help message
+    """
+    print(help_text)
 
-def idvCharCounter():
+def count_words(text):
+
+    words = text.split()
+    print(f"Word count = {len(words)}")
+
+def count_characters(text):
+
+    char_count = len([char for char in text if char.isalnum()])
+    print(f"Character Count = {char_count}")
+
+def count_individual_characters(text):
+    
+    char_counter = {}
     for char in text.lower():
-        charCounter.setdefault(char,0)
-        charCounter[char] += 1
-    pprint.pprint(charCounter)
-    return idvCharCounter
+        if char.isalnum(): # Counting only alphanumeric characters
+            char_counter[char] = char_counter.get(char, 0) + 1
+    for char, count in sorted(char_counter.items()):
+        print(f"{char}: {count}")
 
-def wordCounter():
-    wordCount = 0
-    for i in range(len(text)):
-        char = text[i]
-        leng = len(text)
-        if (i < (leng-1)):
-             nextChar = text[i+1]
-             if (char == ' ' and nextChar != ' '):
-                wordCount += 1
-        elif (i >= (leng-1)):
-            wordCount += 1
-    pprint.pprint("Word count = " + str(wordCount))
-
-def helper():
-    print('''The script accepts command-line arguments to specify the operation to perform:
-
-    -c: Count total characters in the clipboard text that are within the ASCII range 97 to 122 (inclusive). Note: There seems to be a logical error in this range check, as it should be and instead of or to accurately filter characters.
-    -i: Count the occurrences of each individual character in the clipboard text, ignoring case.
-    -w: Count the total number of words in the clipboard text. A word is defined as any sequence of characters separated by whitespace.
-    -h: Display help information using a function from an external module named helper.''')
-
-        
-def totalCharCounter():
-    totalCharCount = 0
-    for char in text.lower():
-        charCounter.setdefault(char,0)
-        charCounter[char] += 1
-        if(ord(char) >= 97 or ord(char) <= 122): #32 - 126
-                totalCharCount += 1
-                
-    pprint.pprint("Character Count = " + str(totalCharCount))
-    return totalCharCount
-
-def handler():
-    try:
-        arg = sys.argv[1]
-    except:
-        print("No arguments passed?")
-        helper()
+def main():
+    if len(sys.argv) != 2:
+        print("Error: Invalid number of arguments.")
+        print_help()
         return
 
-    if (len(sys.argv) > 2):
-        print("Error Usage")
-        helper()
-    
-    if (arg == '-c'):
-        totalCharCounter()
-    if (arg == '-i'):
-        idvCharCounter()
-    if (arg == '-w'):
-        wordCounter()
-    if (arg == '-h' or arg=='--h' or arg=='-help' or arg=='--help'):
-        helper()
+    option = sys.argv[1]
+    text = pyperclip.paste()
 
-handler()
+    if option == '-h':
+        print_help()
+    elif option == '-w':
+        count_words(text)
+    elif option == '-c':
+        count_characters(text)
+    elif option == '-i':
+        count_individual_characters(text)
+    else:
+        print("Error: Unknown option.")
+        print_help()
+
+if __name__ == "__main__":
+    main()
