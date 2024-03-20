@@ -42,8 +42,11 @@ Verify Installation: Ensure that the script is correctly installed and accessibl
 The PyWordCounter script is invoked from the command line, accompanied by an option to specify the desired analysis operation on the clipboard's text content. The script supports the following options:
 
 > -c: Counts and displays the total number of characters within the ASCII range 97 to 122 (inclusive). Note: The script's logic has been optimized to accurately filter characters based on their ASCII values.
+
 > -i: Analyzes and prints the frequency of each individual character present in the clipboard's text, disregarding case sensitivity.
+
 >-w: Calculates and shows the total number of words in the clipboard's text, where a word is defined as a sequence of characters bounded by whitespace.
+
 >-h: Invokes the helper module to present a detailed guide and explanation of the available commands and their respective functions.
 
 To execute an analysis, first copy the text of interest to your clipboard. Then, run the script with your chosen option from the command line. For instance:
