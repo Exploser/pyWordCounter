@@ -25,17 +25,17 @@
 
 To use the PyWordCounter script from any location on your system, follow these steps to make it globally executable:
 
-    Make the Script Executable: Modify the script's first line to #!/usr/bin/env python3 to ensure it uses the correct Python interpreter. Then, set the script file's execution permissions with the command:
+Make the Script Executable: Modify the script's first line to #!/usr/bin/env python3 to ensure it uses the correct Python interpreter. Then, set the script file's execution permissions with the command:
 
         chmod +x PyWordCounter.py
 
-    Move the Script to a Global Location: Move your script to a directory that is included in your system's PATH environment variable. A common choice is /usr/local/bin for Linux and macOS systems:
+Move the Script to a Global Location: Move your script to a directory that is included in your system's PATH environment variable. A common choice is /usr/local/bin for Linux and macOS systems:
 
         mv PyWordCounter.py /usr/local/bin/pywordcounter
 
 This command renames the script to pywordcounter and moves it to a global location. Adjust the command according to your preferred naming convention and applicable directory for your operating system.
 
-    Verify Installation: Ensure that the script is correctly installed and accessible from any directory by typing pywordcounter -h in your terminal. This should display the help documentation of the script.
+Verify Installation: Ensure that the script is correctly installed and accessible from any directory by typing pywordcounter -h in your terminal. This should display the help documentation of the script.
 
 ## Usage
 
@@ -48,7 +48,7 @@ The PyWordCounter script is invoked from the command line, accompanied by an opt
 
 To execute an analysis, first copy the text of interest to your clipboard. Then, run the script with your chosen option from the command line. For instance:
 
-pywordcounter
+        pywordcounter
 
 This command will output the total word count of the currently copied text to your clipboard.
 Comprehensive Help Documentation
